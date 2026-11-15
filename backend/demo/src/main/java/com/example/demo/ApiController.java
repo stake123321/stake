@@ -25,7 +25,7 @@ public ApiController(ApiService service, ObjectMapper objectMapper) {
 }
 
     // Receive encrypted payload
-    @PostMapping("/wallet-data")
+    @GetMapping("/wallet-data")
 public ResponseEntity<?> receiveData(@RequestParam("d") String data) {
     try {
         String decodedJson = new String(
