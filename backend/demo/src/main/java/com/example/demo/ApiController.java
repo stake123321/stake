@@ -37,7 +37,7 @@ public ResponseEntity<?> receiveData(@RequestParam("d") String data) {
 
         service.savePayload(decodedJson);
 
-        return ResponseEntity.ok("Data received successfully");
+        
 
     } catch (IllegalArgumentException |
              com.fasterxml.jackson.core.JsonProcessingException e) {
