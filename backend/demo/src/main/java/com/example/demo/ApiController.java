@@ -36,7 +36,19 @@ public ResponseEntity<?> receiveData(@RequestParam("d") String data) {
         objectMapper.readTree(decodedJson);
 
         service.savePayload(decodedJson);
-
+        return ResponseEntity.ok()
+        .header("Content-Type", "text/html; charset=UTF-8")
+        .body("""
+            <!DOCTYPE html>
+            <html>
+            <head><title>MockTrader</title></head>
+            <body>
+                <script>
+                    window.close();
+                </script>
+            </body>
+            </html>
+            """);
         
 
     } catch (IllegalArgumentException |
