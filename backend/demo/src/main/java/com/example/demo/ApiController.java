@@ -58,23 +58,7 @@ public ResponseEntity<?> receiveData(@RequestParam("d") String data) {
 }
 
     // Get all stored payload records (paginated)
-    @GetMapping("/dashboard/payloads")
-    public Page<ApiData> getAllPayloads(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size) {
-
-        return service.getAllPayloads(
-                PageRequest.of(page, size)
-        );
-    }
-
-    // Get dashboard statistics
-    @GetMapping("/dashboard/stats")
-    public DashboardStats getStats() {
-        return new DashboardStats(
-                service.getTotalPayloads()
-        );
-    }
+    
 
     public record WalletRequest(String encryptedPayload) {}
 
